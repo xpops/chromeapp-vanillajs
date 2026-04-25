@@ -9,33 +9,35 @@ const USERNAME_KEY = "username";
 function onLoginSubmit(event) {
     event.preventDefault();
     const username = loginInput.value;
-    localStorage.setItem(USERNAME_KEY, username);
     loginForm.classList.add(HIDDEN_CLASS);
-    loginMessage.innerHTML = "hello, " + username;
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(username);
+}
+
+function paintGreetings(username) {
     loginMessage.classList.remove(HIDDEN_CLASS);
+    resetBtn.classList.remove(HIDDEN_CLASS);
+    loginMessage.innerText = `Welcome back, ${username}`;
 }
 
 function toggleColor(event) {
     loginMessage.classList.toggle("blue");
 }
 
-loginMessage.addEventListener("click", toggleColor);
+function onReset() {
+    localStorage.removeItem(USERNAME_KEY);
+    location.reload();
+}
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
-
 if (savedUsername === null) {
     // show the form
     loginForm.classList.remove(HIDDEN_CLASS);
     loginForm.addEventListener("submit", onLoginSubmit);
 } else {
     // show greetings
-    loginMessage.classList.remove(HIDDEN_CLASS);
-    loginMessage.innerText = `hello, ${savedUsername}`;
+    paintGreetings(savedUsername);
 }
 
+loginMessage.addEventListener("click", toggleColor);
 resetBtn.addEventListener("click", onReset);
-
-function onReset() {
-    localStorage.removeItem(USERNAME_KEY);
-    location.reload();
-}
