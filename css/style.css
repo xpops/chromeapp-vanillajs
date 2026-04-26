@@ -1,7 +1,177 @@
-.hidden {
-    display: none;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
 }
 
-.blue {
-    color: blue;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Clock */
+#clock {
+    font-size: 10rem;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+}
+
+/* Greetings & Login */
+#greeting {
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+#login-form input, #todo-form input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px;
+    text-align: center;
+    outline: none;
+    transition: border-bottom 0.3s ease;
+}
+
+#login-form input::placeholder, #todo-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#login-form input:focus, #todo-form input:focus {
+    border-bottom: 2px solid #ffeb3b;
+}
+
+#login-form button {
+    display: none; /* Hide login button, use enter key */
+}
+
+/* TODO List */
+#todo-form {
+    margin-top: 20px;
+}
+
+#todo-form input {
+    font-size: 1.2rem;
+    width: 300px;
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 300px;
+}
+
+#todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+#todo-list li button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+#todo-list li button:hover {
+    opacity: 1;
+}
+
+/* Weather (Top Right) */
+#weather {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+#weather span:first-child {
+    font-weight: 600;
+    display: block;
+}
+
+#weather span:last-child {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Quotes (Bottom) */
+#quote {
+    position: absolute;
+    bottom: 30px;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#quote span:first-child {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+#quote span:last-child {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* Reset Button (Bottom Left) */
+#reset {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: all 0.3s;
+}
+
+#reset:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Custom Scrollbar */
+#todo-list::-webkit-scrollbar {
+    width: 5px;
+}
+#todo-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
 }
