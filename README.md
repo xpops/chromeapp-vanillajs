@@ -1,4 +1,4 @@
-# Momentum Clone (Vanilla JS)
+# Browser Dashboard (Vanilla JS)
 
 A simple Chrome dashboard clone that displays the time, user greetings, a to-do list, random quotes, and local weather information.
 
